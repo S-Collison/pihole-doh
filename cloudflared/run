@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+s6-echo "Starting cloudflared proxy-dns"
+
+exec -c
+fdmove -c 2 1 /usr/sbin/cloudflared proxy-dns --port 5353 --max-upstream-conns 0
