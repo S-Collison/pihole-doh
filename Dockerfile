@@ -6,7 +6,7 @@ ADD cloudflared /etc/services.d/cloudflared/
 RUN <<EOF
 ARCH="$(uname -m)"
 
-if [ "$(uname -m)" == "aarch64" ]; then
+if [ "$ARCH" == "aarch64" ]; then
 	ARCH=arm64
 fi
 
