@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.3-labs
 FROM pihole/pihole:latest
 
-ADD cloudflared /etc/services.d/cloudflared/
+ADD cloudflared /etc/init.d/cloudflared
 
 RUN <<EOF
 ARCH="$(uname -m)"
