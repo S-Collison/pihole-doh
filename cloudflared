@@ -25,7 +25,7 @@ PIDFILE=none
 
 do_start_cmd() {
 	STATUS=0
-	$DAEMON proxy-dns --port 5353 --max-upstream-conns 0 || STATUS=$?
+	$DAEMON proxy-dns --port 5353 --max-upstream-conns 0 || STATUS=$? &
 	return $STATUS
 }
 
