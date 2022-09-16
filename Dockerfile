@@ -13,4 +13,13 @@ fi
 # install cloudflared
 curl -L -o /usr/sbin/cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-$ARCH
 chmod 755 /usr/sbin/cloudflared
+
+for x in 0 1 6; do
+	cd /etc/rc${x}.d && ln -s K01cloudflared ../init.d/cloudflared
+done
+
+for x in 2 3 4 5; do
+	cd /etc/rc${x}.d && ln -s S01cloudflared ../init.d/cloudflared
+done
+
 EOF
