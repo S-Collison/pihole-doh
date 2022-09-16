@@ -14,12 +14,12 @@ fi
 curl -L -o /usr/sbin/cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-$ARCH
 chmod 755 /usr/sbin/cloudflared
 
-for x in 0 1 6; do
-	cd /etc/rc${x}.d && ln -s K01cloudflared ../init.d/cloudflared
-done
-
-for x in 2 3 4 5; do
-	cd /etc/rc${x}.d && ln -s S01cloudflared ../init.d/cloudflared
-done
+cd /etc/rc0.d && ln -s K01cloudflared ../init.d/cloudflared
+cd /etc/rc1.d && ln -s K01cloudflared ../init.d/cloudflared
+cd /etc/rc2.d && ln -s S01cloudflared ../init.d/cloudflared
+cd /etc/rc3.d && ln -s S01cloudflared ../init.d/cloudflared
+cd /etc/rc4.d && ln -s S01cloudflared ../init.d/cloudflared
+cd /etc/rc5.d && ln -s S01cloudflared ../init.d/cloudflared
+cd /etc/rc6.d && ln -s K01cloudflared ../init.d/cloudflared
 
 EOF
