@@ -1,6 +1,5 @@
 name: Release
 
-
 on:
   schedule:
     - cron:  '0 4 * * *'
